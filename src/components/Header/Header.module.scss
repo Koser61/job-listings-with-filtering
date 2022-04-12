@@ -1,0 +1,13 @@
+@import '../../styles/settings.scss';
+
+.component {
+  height: 156px;
+  background-image: url('../../images/bg-header-mobile.svg');
+  background-color: $color-primary;
+}
+
+@media only screen and (min-width: 445px) {
+  .component {
+    background-image: url('../../images/bg-header-desktop.svg');
+  }
+}
