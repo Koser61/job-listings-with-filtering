@@ -1,0 +1,13 @@
+@import '../../styles/settings.scss';
+
+.component {
+  background-color: white;
+  border-radius: 5px;
+  padding: 18px;
+  box-shadow: 0px 6px 24px -14px $color-primary;
+}
+
+.featured {
+  @extend .component;
+  border-left: 5px solid $color-primary;
+}

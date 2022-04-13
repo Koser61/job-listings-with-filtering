@@ -1,9 +1,16 @@
+import Header from './components/Header/Header';
+import Container from './components/Container/Container';
+import Card from './components/Card/Card';
+
 import './App.scss';
 
 const App = () => (
-  <div className='App'>
-    <h1>job listings with filtering</h1>
-  </div>
+  <>
+    <Header />
+    <Container>
+      <Card />
+    </Container>
+  </>
 );
 
 export default App;
