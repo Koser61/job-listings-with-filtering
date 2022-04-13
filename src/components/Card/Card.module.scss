@@ -3,6 +3,8 @@
 .component {
   background-color: white;
   border-radius: 5px;
+  padding: 18px; // ADDED PADDING & SHADOW
+  box-shadow: 0px 6px 24px -14px $color-primary;
 }
 
 .featured {
