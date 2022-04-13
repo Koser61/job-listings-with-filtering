@@ -1,6 +1,6 @@
 import Header from './components/Header/Header';
 import Container from './components/Container/Container';
-import Card from './components/Card/Card';
+import Filters from './components/Filters/Filters';
 
 import './App.scss';
 
@@ -8,7 +8,7 @@ const App = () => (
   <>
     <Header />
     <Container>
-      <Card />
+      <Filters />
     </Container>
   </>
 );
