@@ -1,0 +1,38 @@
+@import '../../styles/settings.scss';
+
+.component {
+  display: inline-flex;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 700;
+  background-color: $color-filters;
+  color: $color-primary;
+  border-radius: $radius;
+  overflow: hidden;
+
+  p {
+    margin: auto 8px;
+  }
+}
+
+.removeButton {
+  border: none;
+  background-color: $color-primary;
+  height: 32px;
+  width: 32px;
+  position: relative;
+  cursor: pointer;
+
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media (hover: hover) {
+  .removeButton:hover {
+    background-color: $color-darker;
+  }
+}

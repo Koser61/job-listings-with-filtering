@@ -1,7 +1,6 @@
 import Card from '../Card/Card';
+import ActiveFilter from '../ActiveFilter/ActiveFilter';
 import ClearButton from '../ClearButton/ClearButton';
-
-import { ReactComponent as RemoveIcon } from '../../images/icon-remove.svg';
 
 import styles from './Filters.module.scss';
 
@@ -10,24 +9,9 @@ const Filters = () => (
     <Card>
       <div className={styles.wrapper}>
         <div className={styles.filtersWrapper}>
-          <div className={styles.filter}>
-            <p>Frontend</p>
-            <button className={styles.removeButton}>
-              <RemoveIcon />
-            </button>
-          </div>
-          <div className={styles.filter}>
-            <p>CSS</p>
-            <button className={styles.removeButton}>
-              <RemoveIcon />
-            </button>
-          </div>
-          <div className={styles.filter}>
-            <p>JavaScript</p>
-            <button className={styles.removeButton}>
-              <RemoveIcon />
-            </button>
-          </div>
+          <ActiveFilter value='Frontend' />
+          <ActiveFilter value='CSS' />
+          <ActiveFilter value='JavaScript' />
         </div>
         <div className={styles.clearFiltersWrapper}>
           <ClearButton />
