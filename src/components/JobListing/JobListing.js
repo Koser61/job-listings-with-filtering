@@ -1,4 +1,5 @@
 import Card from '../Card/Card';
+import KeywordTile from '../KeywordTile/KeywordTile';
 
 /* use public folder to store logos instead ! */
 import Logo from '../../images/photosnap.svg';
@@ -42,21 +43,11 @@ const JobListing = () => (
           </div>
         </div>
         <div className={styles.keywords}>
-          <button className={styles.filter}>
-            Frontend
-          </button>
-          <button className={styles.filter}>
-            Senior
-          </button>
-          <button className={styles.filter}>
-            HTML
-          </button>
-          <button className={styles.filter}>
-            CSS
-          </button>
-          <button className={styles.filter}>
-            JavaScript
-          </button>
+          <KeywordTile value='Frontend' />
+          <KeywordTile value='Senior' />
+          <KeywordTile value='HTML' />
+          <KeywordTile value='CSS' />
+          <KeywordTile value='JavaScript' />
         </div>
       </div>
     </Card>

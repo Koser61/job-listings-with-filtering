@@ -101,19 +101,6 @@
   gap: 16px;
 }
 
-.filter {
-  border: none;
-  height: 32px;
-  padding: 8px;
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: 700;
-  background-color: $color-filters;
-  color: $color-primary;
-  border-radius: $radius;
-  cursor: pointer;
-}
-
 @media only screen and (min-width: 550px) {
   .summaryWrapper {
     position: static;
@@ -185,19 +172,9 @@
     align-items: center;
     gap: 16px;
   }
-
-  .filter {
-    margin-top: 0;
-    margin-right: 0;
-  }
 }
 
 @media (hover: hover) {
-  .filter:hover {
-    background-color: $color-primary;
-    color: white;
-  }
-
   .offerLink:hover {
     color: $color-primary;
   }
