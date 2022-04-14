@@ -1,7 +1,7 @@
 @import '../../styles/settings.scss';
 
 .component {
-
+  margin-bottom: 56px;
 }
 
 .wrapper {
@@ -73,5 +73,11 @@
 
   .removeButton:hover {
     background-color: $color-darker;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .component {
+    margin-bottom: 40px;
   }
 }

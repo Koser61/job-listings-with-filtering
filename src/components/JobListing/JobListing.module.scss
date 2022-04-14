@@ -1,0 +1,204 @@
+@import '../../styles/settings.scss';
+
+.component {
+  margin-bottom: 40px;
+}
+
+.wrapper {
+  display: grid; 
+  grid-auto-columns: auto;
+  grid-auto-rows: 1fr;
+  grid-template-rows: auto 1fr;
+  column-gap: 20px;
+}
+
+.summaryWrapper {
+  position: relative;
+  padding: 8px 0;
+  border-bottom: 1px solid $color-dark-opaque;
+}
+
+.summary {
+  width: 100%;
+}
+
+.companyLogo {
+  position: absolute;
+  top: -44px;
+  width: 48px;
+  height: 48px;
+
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.heading {
+  margin: 5px 0;
+
+  span {
+    font-weight: 700;
+    color: $color-primary;
+    margin-right: 12px;
+  }
+}
+
+.chipNew {
+  display: inline-flex;
+  padding: 5px 8px;
+  width: fit-content;
+  border-radius: 12px;
+  font-size: 14px;
+  background-color: $color-primary;
+  color: white;
+  letter-spacing: 0.15px;
+  margin-left: 8px;
+}
+
+.chipFeatured {
+  display: inline-flex;
+  padding: 5px 8px;
+  width: fit-content;
+  border-radius: 16px;
+  font-size: 14px;
+  background-color: $color-darker;
+  color: white;
+  letter-spacing: 0.15px;
+  margin-left: 8px;
+}
+
+.offerLink {
+  margin: 5px 0;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  color: $color-darker;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.45px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.params {
+  margin: 12px 0;
+  color: $color-dark;
+}
+
+.bullet {
+  margin: 0 7px;
+}
+
+.keywords {
+  padding: 20px 0 0 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+}
+
+.filter {
+  border: none;
+  height: 32px;
+  padding: 8px;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 700;
+  background-color: $color-filters;
+  color: $color-primary;
+  border-radius: $radius;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 550px) {
+  .summaryWrapper {
+    position: static;
+    padding: 0 0 8px 0;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .summary {
+    margin-left: 20px;
+  }
+
+  .companyLogo {
+    position: static;
+    width: 88px;
+    height: 88px;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .component {
+    margin-bottom: 20px;
+  }
+
+  .wrapper {
+    grid-auto-columns: auto; 
+    grid-auto-rows: 1fr; 
+    grid-template-columns: 1fr 1fr; 
+  }
+
+  .summaryWrapper {
+    position: static;
+    padding: 8px 0;
+    border-bottom: none;
+  }
+
+  .heading {
+    span {
+      letter-spacing: 0.5px;
+    }
+  }
+
+  .chipNew, .chipFeatured {
+    margin-left: 8px;
+  }
+
+  .offerLink {
+    font-size: 22px;
+    letter-spacing: 0.4px;
+  }
+
+  .params {
+    margin: 10px 0;
+    font-size: 18px;
+    letter-spacing: 0.45px;
+  }
+
+  .bullet {
+    margin: 0 12px;
+  }
+
+  .keywords {
+    margin-bottom: 0;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .filter {
+    margin-top: 0;
+    margin-right: 0;
+  }
+}
+
+@media (hover: hover) {
+  .filter:hover {
+    background-color: $color-primary;
+    color: white;
+  }
+
+  .offerLink:hover {
+    color: $color-primary;
+  }
+}
