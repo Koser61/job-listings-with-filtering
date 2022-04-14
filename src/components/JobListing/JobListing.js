@@ -1,6 +1,6 @@
 import Card from '../Card/Card';
 import KeywordTile from '../KeywordTile/KeywordTile';
-import Chip from '../Chip/Chip';
+import JobSummary from '../JobSummary/JobSummary';
 
 /* use public folder to store logos instead ! */
 import Logo from '../../images/photosnap.svg';
@@ -17,27 +17,15 @@ const JobListing = () => (
               <img src={Logo} alt='logo' />
             </div>
           </div>
-          <div className={styles.summary}>
-            <div className={styles.heading}>
-              <span>Photosnap</span>
-              <Chip variant='new' />
-              <Chip variant='featured' />
-            </div>
-            <button className={styles.offerLink}>
-              Senior Frontend Developer
-            </button>
-            <div className={styles.params}>
-              <span>1d ago</span>
-              <span className={styles.bullet}>
-                •
-              </span>
-              <span>Full Time</span>
-              <span className={styles.bullet}>
-                •
-              </span>
-              <span>USA only</span>
-            </div>
-          </div>
+          <JobSummary
+            company='Photosnap'
+            position='Senior Frontend Developer'
+            postedAt='1d ago'
+            contract='Full Time'
+            location='USA only'
+            isNew
+            isFeatured
+          />
         </div>
         <div className={styles.keywords}>
           <KeywordTile value='Frontend' />

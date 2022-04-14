@@ -1,0 +1,73 @@
+@import '../../styles/settings.scss';
+
+.component {
+  width: 100%;
+}
+
+.heading {
+  margin: 5px 0;
+
+  span {
+    font-weight: 700;
+    color: $color-primary;
+    margin-right: 12px;
+  }
+}
+
+.offerLink {
+  margin: 5px 0;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  color: $color-darker;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.45px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.params {
+  margin: 12px 0;
+  color: $color-dark;
+}
+
+.bullet {
+  margin: 0 7px;
+}
+
+@media only screen and (min-width: 550px) {
+  .component {
+    margin-left: 20px;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .heading {
+    span {
+      letter-spacing: 0.5px;
+    }
+  }
+
+  .offerLink {
+    font-size: 22px;
+    letter-spacing: 0.4px;
+  }
+
+  .params {
+    margin: 10px 0;
+    font-size: 18px;
+    letter-spacing: 0.45px;
+  }
+
+  .bullet {
+    margin: 0 12px;
+  }
+}
+
+@media (hover: hover) {
+  .offerLink:hover {
+    color: $color-primary;
+  }
+}
