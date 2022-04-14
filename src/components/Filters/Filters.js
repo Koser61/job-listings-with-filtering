@@ -1,40 +1,30 @@
+import PropTypes from 'prop-types';
+
 import Card from '../Card/Card';
-import { ReactComponent as RemoveIcon } from '../../images/icon-remove.svg';
+import ActiveFilter from '../ActiveFilter/ActiveFilter';
+import ClearButton from '../ClearButton/ClearButton';
 
 import styles from './Filters.module.scss';
 
-const Filters = () => (
+const Filters = ({ filters }) => (
   <div className={styles.component}>
     <Card>
       <div className={styles.wrapper}>
         <div className={styles.filtersWrapper}>
-          <div className={styles.filter}>
-            <p>Frontend</p>
-            <button className={styles.removeButton}>
-              <RemoveIcon />
-            </button>
-          </div>
-          <div className={styles.filter}>
-            <p>CSS</p>
-            <button className={styles.removeButton}>
-              <RemoveIcon />
-            </button>
-          </div>
-          <div className={styles.filter}>
-            <p>JavaScript</p>
-            <button className={styles.removeButton}>
-              <RemoveIcon />
-            </button>
-          </div>
+          {filters.map((filter, i) =>
+            <ActiveFilter key={i} value={filter} />
+          )}
         </div>
         <div className={styles.clearFiltersWrapper}>
-          <button className={styles.clearFiltersButton}>
-            Clear
-          </button>
+          <ClearButton />
         </div>
       </div>
     </Card>
   </div>
 );
+
+Filters.propTypes = {
+  filters: PropTypes.array.isRequired,
+};
 
 export default Filters;

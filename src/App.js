@@ -5,12 +5,16 @@ import JobListing from './components/JobListing/JobListing';
 
 import './App.scss';
 
+import data from './data.json';
+
 const App = () => (
   <>
     <Header />
     <Container>
-      <Filters />
-      <JobListing />
+      <Filters filters={['HTML', 'CSS', 'JavaScript']} />
+      {data.map((dataEntry) =>
+        <JobListing key={dataEntry.id} {...dataEntry} />
+      )}
     </Container>
   </>
 );

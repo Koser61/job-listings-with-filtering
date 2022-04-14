@@ -1,0 +1,19 @@
+@import '../../styles/settings.scss';
+
+.component {
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 700;
+  color: $color-dark;
+  margin-left: 16px;
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .component:hover {
+    color: $color-primary;
+    text-decoration: underline;
+  }
+}

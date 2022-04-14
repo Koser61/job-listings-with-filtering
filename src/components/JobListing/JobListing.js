@@ -1,66 +1,56 @@
-import Card from '../Card/Card';
+import PropTypes from 'prop-types';
 
-/* use public folder to store logos instead ! */
-import Logo from '../../images/photosnap.svg';
+import Card from '../Card/Card';
+import KeywordTile from '../KeywordTile/KeywordTile';
+import JobSummary from '../JobSummary/JobSummary';
+import CompanyLogo from '../CompanyLogo/CompanyLogo';
 
 import styles from './JobListing.module.scss';
 
-const JobListing = () => (
+const JobListing = (props) => (
   <div className={styles.component}>
-    <Card article featured>
+    <Card article featured={props.featured}>
       <div className={styles.wrapper}>
         <div className={styles.summaryWrapper}>
-          <div className={styles.logoBox}>
-            <div className={styles.companyLogo}>
-              <img src={Logo} alt='logo' />
-            </div>
-          </div>
-          <div className={styles.summary}>
-            <div className={styles.heading}>
-              <span>Photosnap</span>
-              <div className={styles.chipNew}>
-                NEW!
-              </div>
-              <div className={styles.chipFeatured}>
-                FEATURED
-              </div>
-            </div>
-            <button className={styles.offerLink}>
-              Senior Frontend Developer
-            </button>
-            <div className={styles.params}>
-              <span>1d ago</span>
-              <span className={styles.bullet}>
-                •
-              </span>
-              <span>Full Time</span>
-              <span className={styles.bullet}>
-                •
-              </span>
-              <span>USA only</span>
-            </div>
-          </div>
+          <CompanyLogo src={props.logo} />
+          <JobSummary
+            company={props.company}
+            position={props.position}
+            postedAt={props.postedAt}
+            contract={props.contract}
+            location={props.location}
+            isNew={props.new}
+            isFeatured={props.featured}
+          />
         </div>
         <div className={styles.keywords}>
-          <button className={styles.filter}>
-            Frontend
-          </button>
-          <button className={styles.filter}>
-            Senior
-          </button>
-          <button className={styles.filter}>
-            HTML
-          </button>
-          <button className={styles.filter}>
-            CSS
-          </button>
-          <button className={styles.filter}>
-            JavaScript
-          </button>
+          <KeywordTile value={props.role} />
+          <KeywordTile value={props.level} />
+          {props.languages.map((language, i) => 
+            <KeywordTile key={i} value={language} />
+          )}
+          {props.tools.map((tool, i) => 
+            <KeywordTile key={i} value={tool} />
+          )}
         </div>
       </div>
     </Card>
   </div>
 );
+
+JobListing.propTypes = {
+  company: PropTypes.string.isRequired,
+  logo: PropTypes.string.isRequired,
+  new: PropTypes.bool.isRequired,
+  featured: PropTypes.bool.isRequired,
+  position: PropTypes.string.isRequired,
+  role: PropTypes.string.isRequired,
+  level: PropTypes.string.isRequired,
+  postedAt: PropTypes.string.isRequired,
+  contract: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  languages: PropTypes.array.isRequired,
+  tools: PropTypes.array.isRequired,
+};
 
 export default JobListing;
