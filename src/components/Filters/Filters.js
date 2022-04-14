@@ -1,4 +1,6 @@
 import Card from '../Card/Card';
+import ClearButton from '../ClearButton/ClearButton';
+
 import { ReactComponent as RemoveIcon } from '../../images/icon-remove.svg';
 
 import styles from './Filters.module.scss';
@@ -28,9 +30,7 @@ const Filters = () => (
           </div>
         </div>
         <div className={styles.clearFiltersWrapper}>
-          <button className={styles.clearFiltersButton}>
-            Clear
-          </button>
+          <ClearButton />
         </div>
       </div>
     </Card>

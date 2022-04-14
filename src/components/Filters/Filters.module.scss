@@ -54,23 +54,7 @@
   align-items: center;
 }
 
-.clearFiltersButton {
-  border: none;
-  background-color: transparent;
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: 700;
-  color: $color-dark;
-  margin-left: 16px;
-  cursor: pointer;
-}
-
 @media (hover: hover) {
-  .clearFiltersButton:hover {
-    color: $color-primary;
-    text-decoration: underline;
-  }
-
   .removeButton:hover {
     background-color: $color-darker;
   }
