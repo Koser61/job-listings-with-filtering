@@ -1,5 +1,6 @@
 import Card from '../Card/Card';
 import KeywordTile from '../KeywordTile/KeywordTile';
+import Chip from '../Chip/Chip';
 
 /* use public folder to store logos instead ! */
 import Logo from '../../images/photosnap.svg';
@@ -19,12 +20,8 @@ const JobListing = () => (
           <div className={styles.summary}>
             <div className={styles.heading}>
               <span>Photosnap</span>
-              <div className={styles.chipNew}>
-                NEW!
-              </div>
-              <div className={styles.chipFeatured}>
-                FEATURED
-              </div>
+              <Chip variant='new' />
+              <Chip variant='featured' />
             </div>
             <button className={styles.offerLink}>
               Senior Frontend Developer

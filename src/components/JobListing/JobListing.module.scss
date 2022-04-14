@@ -44,30 +44,6 @@
   }
 }
 
-.chipNew {
-  display: inline-flex;
-  padding: 5px 8px;
-  width: fit-content;
-  border-radius: 12px;
-  font-size: 14px;
-  background-color: $color-primary;
-  color: white;
-  letter-spacing: 0.15px;
-  margin-left: 8px;
-}
-
-.chipFeatured {
-  display: inline-flex;
-  padding: 5px 8px;
-  width: fit-content;
-  border-radius: 16px;
-  font-size: 14px;
-  background-color: $color-darker;
-  color: white;
-  letter-spacing: 0.15px;
-  margin-left: 8px;
-}
-
 .offerLink {
   margin: 5px 0;
   border: none;
@@ -141,10 +117,6 @@
     span {
       letter-spacing: 0.5px;
     }
-  }
-
-  .chipNew, .chipFeatured {
-    margin-left: 8px;
   }
 
   .offerLink {
