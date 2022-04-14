@@ -1,9 +1,7 @@
 import Card from '../Card/Card';
 import KeywordTile from '../KeywordTile/KeywordTile';
 import JobSummary from '../JobSummary/JobSummary';
-
-/* use public folder to store logos instead ! */
-import Logo from '../../images/photosnap.svg';
+import CompanyLogo from '../CompanyLogo/CompanyLogo';
 
 import styles from './JobListing.module.scss';
 
@@ -12,11 +10,7 @@ const JobListing = () => (
     <Card article featured>
       <div className={styles.wrapper}>
         <div className={styles.summaryWrapper}>
-          <div className={styles.logoBox}>
-            <div className={styles.companyLogo}>
-              <img src={Logo} alt='logo' />
-            </div>
-          </div>
+          <CompanyLogo src='/logos/photosnap.svg' />
           <JobSummary
             company='Photosnap'
             position='Senior Frontend Developer'

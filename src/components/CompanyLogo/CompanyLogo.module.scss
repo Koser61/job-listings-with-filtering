@@ -1,0 +1,19 @@
+.companyLogo {
+  position: absolute;
+  top: -44px;
+  width: 48px;
+  height: 48px;
+
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 550px) {
+  .companyLogo {
+    position: static;
+    width: 88px;
+    height: 88px;
+  }
+}
