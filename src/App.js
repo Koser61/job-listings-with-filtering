@@ -12,7 +12,9 @@ const App = () => (
     <Header />
     <Container>
       <Filters filters={['HTML', 'CSS', 'JavaScript']} />
-      <JobListing {...data[0]} />
+      {data.map((dataEntry) =>
+        <JobListing key={dataEntry.id} {...dataEntry} />
+      )}
     </Container>
   </>
 );
