@@ -5,12 +5,14 @@ import JobListing from './components/JobListing/JobListing';
 
 import './App.scss';
 
+import data from './data.json';
+
 const App = () => (
   <>
     <Header />
     <Container>
       <Filters />
-      <JobListing />
+      <JobListing {...data[0]} />
     </Container>
   </>
 );
