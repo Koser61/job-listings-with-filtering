@@ -68,7 +68,7 @@ const App = () => {
     <>
       <Header />
       <Container>
-        <Filters filters={['HTML', 'CSS', 'JavaScript']} />
+        <Filters filters={filters} dispatch={dispatch} />
         <JobList filters={filters} dispatch={dispatch} />
       </Container>
     </>
