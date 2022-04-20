@@ -36,7 +36,7 @@ const App = () => {
       case 'ADD_TOOLS_FILTER':
         return {
           ...state,
-          languages: [ ...state.languages, action.value ],
+          tools: [ ...state.tools, action.value ],
         };
       case 'REMOVE_TOOLS_FILTER':
         const targetToolsFilterIndex = state.tools.indexOf(action.value);
