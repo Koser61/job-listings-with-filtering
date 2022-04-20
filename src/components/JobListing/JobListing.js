@@ -24,13 +24,31 @@ const JobListing = (props) => (
           />
         </div>
         <div className={styles.keywords}>
-          <KeywordTile value={props.role} />
-          <KeywordTile value={props.level} />
+          <KeywordTile
+            property='role'
+            value={props.role}
+            dispatch={props.dispatch}
+          />
+          <KeywordTile
+            property='level'
+            value={props.level}
+            dispatch={props.dispatch}
+          />
           {props.languages.map((language, i) => 
-            <KeywordTile key={i} value={language} />
+            <KeywordTile
+              key={i}
+              property='languages'
+              value={language}
+              dispatch={props.dispatch}
+            />
           )}
           {props.tools.map((tool, i) => 
-            <KeywordTile key={i} value={tool} />
+            <KeywordTile
+              key={i}
+              property='tools'
+              value={tool}
+              dispatch={props.dispatch}
+            />
           )}
         </div>
       </div>
@@ -51,6 +69,7 @@ JobListing.propTypes = {
   location: PropTypes.string.isRequired,
   languages: PropTypes.array.isRequired,
   tools: PropTypes.array.isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
 export default JobListing;
