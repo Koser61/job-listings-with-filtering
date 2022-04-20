@@ -64,11 +64,20 @@ const App = () => {
 
   const [ filters, dispatch ] = useReducer(filtersReducer, initialFiltersState);
 
+  const filterNotSelected = (
+    filters.role === '' &&
+    filters.level === '' &&
+    !filters.languages.length &&
+    !filters.tools.length
+  );
+
   return (
     <>
       <Header />
       <Container>
-        <Filters filters={filters} dispatch={dispatch} />
+        {!filterNotSelected && 
+          <Filters filters={filters} dispatch={dispatch} />
+        }
         <JobList filters={filters} dispatch={dispatch} />
       </Container>
     </>
