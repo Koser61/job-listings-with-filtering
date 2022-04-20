@@ -13,15 +13,23 @@ const JobList = ({ filters, dispatch }) => {
   useEffect(() => {
     setJobsData(data);
   }, []);
+
+  const multipleValueMatch = (array, values) => {
+    return values.every(value => {
+      return array.includes(value);
+    });
+  };
+
+  const { role, level, languages, tools } = filters;
   
   const filteredJobsData = jobsData.filter((job) =>
-    (filters.role !== '' ? job.role === filters.role : true)
+    (role !== '' ? job.role === role : true)
     &&
-    (filters.level !== '' ? job.level === filters.level : true)
+    (level !== '' ? job.level === level : true)
     &&
-    (filters.languages.lenght ? job.languages.includes(filters.languages) : true)
+    (languages.length ? multipleValueMatch(job.languages, languages) : true)
     &&
-    (filters.tools.lenght ? job.tools.includes(filters.tools) : true)
+    (tools.length ? multipleValueMatch(job.tools, tools) : true)
   );
 
   return (
