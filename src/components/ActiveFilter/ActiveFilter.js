@@ -28,12 +28,13 @@ const ActiveFilter = ({ property, value, dispatch }) => {
 
   return (
     <div className={styles.component}>
-      <p>{value}</p>
+      <p aria-label='filter name'>{value}</p>
       <button
         className={styles.removeButton}
         onClick={() => removeFilter()}
+        aria-label='remove filter'
       >
-        <RemoveIcon />
+        <RemoveIcon data-testid='removeIcon' />
       </button>
     </div>
   );
