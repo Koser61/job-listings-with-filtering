@@ -6,6 +6,7 @@ const ClearButton = ({ dispatch }) => (
   <button
     className={styles.component}
     onClick={() => dispatch({ type: 'CLEAR_FILTERS' })}
+    aria-label='clear filters'
   >
     Clear
   </button>
