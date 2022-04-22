@@ -67,8 +67,8 @@ JobListing.propTypes = {
   postedAt: PropTypes.string.isRequired,
   contract: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
-  languages: PropTypes.array.isRequired,
-  tools: PropTypes.array.isRequired,
+  languages: PropTypes.arrayOf(PropTypes.string).isRequired,
+  tools: PropTypes.arrayOf(PropTypes.string).isRequired,
   dispatch: PropTypes.func.isRequired,
 };
 

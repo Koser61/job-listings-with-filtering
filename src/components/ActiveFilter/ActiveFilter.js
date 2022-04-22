@@ -41,7 +41,7 @@ const ActiveFilter = ({ property, value, dispatch }) => {
 };
 
 ActiveFilter.propTypes = {
-  property: PropTypes.string.isRequired,
+  property: PropTypes.oneOf(['role', 'level', 'languages', 'tools']).isRequired,
   value: PropTypes.string.isRequired,
   dispatch: PropTypes.func.isRequired,
 };

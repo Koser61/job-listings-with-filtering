@@ -42,7 +42,12 @@ const JobList = ({ filters, dispatch }) => {
 };
 
 JobList.propTypes = {
-  filters: PropTypes.object.isRequired,
+  filters: PropTypes.shape({
+    role: PropTypes.string.isRequired,
+    level: PropTypes.string.isRequired,
+    languages: PropTypes.arrayOf(PropTypes.string).isRequired,
+    tools: PropTypes.arrayOf(PropTypes.string).isRequired,
+  }).isRequired,
   dispatch: PropTypes.func.isRequired,
 };
 

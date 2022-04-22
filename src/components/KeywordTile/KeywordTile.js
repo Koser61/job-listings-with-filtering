@@ -35,7 +35,7 @@ const KeywordTile = ({ property, value, dispatch }) => {
 };
 
 KeywordTile.propTypes = {
-  property: PropTypes.string.isRequired,
+  property: PropTypes.oneOf(['role', 'level', 'languages', 'tools']).isRequired,
   value: PropTypes.string.isRequired,
   dispatch: PropTypes.func.isRequired,
 };
