@@ -27,7 +27,7 @@ const ActiveFilter = ({ property, value, dispatch }) => {
   };
 
   return (
-    <div className={styles.component}>
+    <div className={styles.component} data-testid={`active-${property}-filter`}>
       <p aria-label='filter name'>{value}</p>
       <button
         className={styles.removeButton}
