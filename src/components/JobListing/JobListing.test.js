@@ -14,7 +14,7 @@ describe('JobListing component', () => {
     postedAt: "2d ago",
     contract: "Part Time",
     location: "USA Only",
-    languages: ["JavaScript"],
+    languages: ["JavaScript", "HTML"],
     tools: ["React", "Sass"]
   };
 
@@ -65,14 +65,14 @@ describe('JobListing component', () => {
     expect(roleFilter).toBeVisible();
     expect(levelFilter).toBeVisible();
 
-    mockJobData.languages.map((language) => {
+    mockJobData.languages.forEach((language) => {
       const languageFilter = screen.getByText(language);
-      return expect(languageFilter).toBeVisible();
+      expect(languageFilter).toBeVisible();
     });
 
-    mockJobData.tools.map((tool) => {
+    mockJobData.tools.forEach((tool) => {
       const toolFilter = screen.getByText(tool);
-      return expect(toolFilter).toBeVisible();
+      expect(toolFilter).toBeVisible();
     });
   });
 });
