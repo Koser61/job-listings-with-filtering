@@ -6,25 +6,56 @@ import ClearButton from '../ClearButton/ClearButton';
 
 import styles from './Filters.module.scss';
 
-const Filters = ({ filters }) => (
-  <div className={styles.component}>
-    <Card>
-      <div className={styles.wrapper}>
-        <div className={styles.filtersWrapper}>
-          {filters.map((filter, i) =>
-            <ActiveFilter key={i} value={filter} />
-          )}
+const Filters = ({ filters, dispatch }) => {
+  return (
+    <div className={styles.component}>
+      <Card>
+        <div className={styles.wrapper}>
+          <div className={styles.filtersWrapper}>
+            {filters.role !== '' &&
+              <ActiveFilter
+                property='role'
+                value={filters.role}
+                dispatch={dispatch}
+              />}
+            {filters.level !== '' &&
+              <ActiveFilter
+                property='level'
+                value={filters.level}
+                dispatch={dispatch}
+              />}
+            {filters.languages.map((language, i) =>
+              <ActiveFilter
+                key={i}
+                property='languages'
+                value={language}
+                dispatch={dispatch}
+              />)}
+            {filters.tools.map((tool, i) =>
+              <ActiveFilter
+                key={i}
+                property='tools'
+                value={tool}
+                dispatch={dispatch}
+              />)}
+          </div>
+          <div className={styles.clearFiltersWrapper}>
+            <ClearButton dispatch={dispatch} />
+          </div>
         </div>
-        <div className={styles.clearFiltersWrapper}>
-          <ClearButton />
-        </div>
-      </div>
-    </Card>
-  </div>
-);
+      </Card>
+    </div>
+  );
+};
 
 Filters.propTypes = {
-  filters: PropTypes.array.isRequired,
+  filters: PropTypes.shape({
+    role: PropTypes.string.isRequired,
+    level: PropTypes.string.isRequired,
+    languages: PropTypes.arrayOf(PropTypes.string).isRequired,
+    tools: PropTypes.arrayOf(PropTypes.string).isRequired,
+  }).isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
 export default Filters;
