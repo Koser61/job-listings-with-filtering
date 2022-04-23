@@ -13,6 +13,7 @@
   &:active {
     color: $color-primary;
     text-decoration: underline;
+    transition: $transition-active;
   }
 }
 
@@ -20,5 +21,6 @@
   .component:hover {
     color: $color-primary;
     text-decoration: underline;
+    transition: $transition-hover;
   }
 }

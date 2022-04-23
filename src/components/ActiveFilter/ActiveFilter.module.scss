@@ -25,6 +25,7 @@
 
   &:active {
     background-color: $color-darker;
+    transition: $transition-active;
   }
 
   svg {
@@ -38,5 +39,6 @@
 @media (hover: hover) {
   .removeButton:hover {
     background-color: $color-darker;
+    transition: $transition-hover;
   }
 }

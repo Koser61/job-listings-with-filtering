@@ -31,6 +31,7 @@
 
   &:active {
     color: $color-primary;
+    transition: $transition-active;
   }
 }
 
@@ -76,5 +77,6 @@
 @media (hover: hover) {
   .offerLink:hover {
     color: $color-primary;
+    transition: $transition-hover;
   }
 }
