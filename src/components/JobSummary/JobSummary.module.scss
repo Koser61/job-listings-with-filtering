@@ -28,6 +28,10 @@
   letter-spacing: 0.45px;
   white-space: nowrap;
   cursor: pointer;
+
+  &:active {
+    color: $color-primary;
+  }
 }
 
 .params {

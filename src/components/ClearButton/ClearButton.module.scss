@@ -9,6 +9,11 @@
   color: $color-dark;
   margin-left: 16px;
   cursor: pointer;
+
+  &:active {
+    color: $color-primary;
+    text-decoration: underline;
+  }
 }
 
 @media (hover: hover) {
