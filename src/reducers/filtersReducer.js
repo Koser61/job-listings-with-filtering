@@ -18,10 +18,14 @@ export const filtersReducer = (state, action) => {
         level: action.value,
       };
     case 'ADD_LANGUAGE_FILTER':
-      return {
-        ...state,
-        languages: [ ...state.languages, action.value ],
-      };
+      if(state.languages.includes(action.value)) {
+        return state;
+      } else {
+        return {
+          ...state,
+          languages: [ ...state.languages, action.value ],
+        };
+      }
     case 'REMOVE_LANGUAGE_FILTER':
       const targetLanguageFilterIndex = state.languages.indexOf(action.value);
 
@@ -31,10 +35,14 @@ export const filtersReducer = (state, action) => {
           index !== targetLanguageFilterIndex),
       };
     case 'ADD_TOOLS_FILTER':
-      return {
-        ...state,
-        tools: [ ...state.tools, action.value ],
-      };
+      if(state.tools.includes(action.value)) {
+        return state;
+      } else {
+        return {
+          ...state,
+          tools: [ ...state.tools, action.value ],
+        };
+      }
     case 'REMOVE_TOOLS_FILTER':
       const targetToolsFilterIndex = state.tools.indexOf(action.value);
 
