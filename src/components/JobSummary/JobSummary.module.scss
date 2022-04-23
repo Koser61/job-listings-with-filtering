@@ -7,7 +7,9 @@
 .heading {
   margin: 5px 0;
 
-  span {
+  p {
+    margin: 6px 0;
+    display: inline-block;
     font-weight: 700;
     color: $color-primary;
     margin-right: 12px;
@@ -26,11 +28,17 @@
   letter-spacing: 0.45px;
   white-space: nowrap;
   cursor: pointer;
+
+  &:active {
+    color: $color-primary;
+    transition: $transition-active;
+  }
 }
 
 .params {
   margin: 12px 0;
   color: $color-dark;
+  white-space: nowrap;
 }
 
 .bullet {
@@ -45,7 +53,7 @@
 
 @media only screen and (min-width: 900px) {
   .heading {
-    span {
+    p {
       letter-spacing: 0.5px;
     }
   }
@@ -69,5 +77,6 @@
 @media (hover: hover) {
   .offerLink:hover {
     color: $color-primary;
+    transition: $transition-hover;
   }
 }

@@ -1,31 +1,21 @@
 @import '../../styles/settings.scss';
 
-.new {
-  display: inline-flex;
+.chip {
+  display: inline-block;
   padding: 5px 8px;
-  width: fit-content;
   border-radius: 12px;
   font-size: 14px;
-  background-color: $color-primary;
-  color: white;
   letter-spacing: 0.15px;
   margin-left: 8px;
+  color: white;
+}
+
+.new {
+  @extend .chip;
+  background-color: $color-primary;
 }
 
 .featured {
-  display: inline-flex;
-  padding: 5px 8px;
-  width: fit-content;
-  border-radius: 16px;
-  font-size: 14px;
+  @extend .chip;
   background-color: $color-darker;
-  color: white;
-  letter-spacing: 0.15px;
-  margin-left: 8px;
-}
-
-@media only screen and (min-width: 900px) {
-  .new, .featured {
-    margin-left: 8px;
-  }
 }

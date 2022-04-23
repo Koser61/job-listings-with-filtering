@@ -9,11 +9,18 @@
   color: $color-dark;
   margin-left: 16px;
   cursor: pointer;
+
+  &:active {
+    color: $color-primary;
+    text-decoration: underline;
+    transition: $transition-active;
+  }
 }
 
 @media (hover: hover) {
   .component:hover {
     color: $color-primary;
     text-decoration: underline;
+    transition: $transition-hover;
   }
 }

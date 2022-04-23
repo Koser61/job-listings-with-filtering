@@ -15,7 +15,7 @@ const JobSummary = ({
 }) => (
   <div className={styles.component}>
     <div className={styles.heading}>
-      <span aria-label='company name'>{company}</span>
+      <p aria-label='company name'>{company}</p>
       {isNew && <Chip variant='new' />}
       {isFeatured && <Chip variant='featured' />}
     </div>

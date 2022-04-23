@@ -23,6 +23,11 @@
   position: relative;
   cursor: pointer;
 
+  &:active {
+    background-color: $color-darker;
+    transition: $transition-active;
+  }
+
   svg {
     position: absolute;
     top: 50%;
@@ -34,5 +39,6 @@
 @media (hover: hover) {
   .removeButton:hover {
     background-color: $color-darker;
+    transition: $transition-hover;
   }
 }

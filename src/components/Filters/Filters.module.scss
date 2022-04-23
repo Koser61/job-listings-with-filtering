@@ -1,7 +1,7 @@
 @import '../../styles/settings.scss';
 
 .component {
-  margin-bottom: 56px;
+  margin-top: -36px;
 }
 
 .wrapper {
@@ -24,6 +24,6 @@
 
 @media only screen and (min-width: 900px) {
   .component {
-    margin-bottom: 40px;
+    margin-bottom: -35px;
   }
 }
