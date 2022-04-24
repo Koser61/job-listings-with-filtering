@@ -1,0 +1,27 @@
+@import '../../styles/settings.scss';
+
+.component {
+  padding: 20px 0;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  color: $color-darker;
+
+  a {
+    color: hsl(228, 45%, 44%);
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  .attribution {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .attribution {
+    font-size: 14px;
+  }
+}
