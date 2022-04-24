@@ -1,10 +1,11 @@
 @import '../../styles/settings.scss';
 
 .chip {
-  display: inline-block;
+  display: inline-flex;
   padding: 5px 8px;
   border-radius: 12px;
   font-size: 14px;
+  line-height: 14px;
   letter-spacing: 0.15px;
   margin-left: 8px;
   color: white;
