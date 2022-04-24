@@ -6,6 +6,7 @@ import Header from './components/Header/Header';
 import Container from './components/Container/Container';
 import Filters from './components/Filters/Filters';
 import JobList from './components/JobList/JobList';
+import Footer from './components/Footer/Footer';
 
 import './App.scss';
 
@@ -28,6 +29,7 @@ const App = () => {
         }
         <JobList filters={filters} dispatch={dispatch} />
       </Container>
+      <Footer />
     </>
   );
 };
