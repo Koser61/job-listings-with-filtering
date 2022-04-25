@@ -2,6 +2,13 @@
 
 .component {
   margin-top: -36px;
+  transition: $transition-hover;
+  opacity: 0;
+}
+
+.component_active {
+  @extend .component;
+  opacity: 1;
 }
 
 .wrapper {

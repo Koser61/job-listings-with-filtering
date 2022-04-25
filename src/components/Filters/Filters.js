@@ -7,8 +7,18 @@ import ClearButton from '../ClearButton/ClearButton';
 import styles from './Filters.module.scss';
 
 const Filters = ({ filters, dispatch }) => {
+  const filterSelected = (
+    (filters.role !== '') ||
+    (filters.level !== '') ||
+    (filters.languages.length !== 0) ||
+    (filters.tools.length !== 0)
+  );
+
   return (
-    <div className={styles.component}>
+    <div 
+      className={filterSelected ? styles.component_active
+                                : styles.component}
+    >
       <Card>
         <div className={styles.wrapper}>
           <div className={styles.filtersWrapper}>

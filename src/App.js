@@ -13,20 +13,11 @@ import './App.scss';
 const App = () => {
   const [ filters, dispatch ] = useReducer(filtersReducer, initialFiltersState);
 
-  const filterNotSelected = (
-    filters.role === '' &&
-    filters.level === '' &&
-    !filters.languages.length &&
-    !filters.tools.length
-  );
-
   return (
     <>
       <Header />
       <Container>
-        {!filterNotSelected &&
-          <Filters filters={filters} dispatch={dispatch} />
-        }
+        <Filters filters={filters} dispatch={dispatch} />
         <JobList filters={filters} dispatch={dispatch} />
       </Container>
       <Footer />
