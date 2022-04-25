@@ -1,60 +1,63 @@
 import PropTypes from 'prop-types';
+import { AnimatePresence } from 'framer-motion';
 
 import Card from '../Card/Card';
 import ActiveFilter from '../ActiveFilter/ActiveFilter';
 import ClearButton from '../ClearButton/ClearButton';
 import AnimateMount from '../AnimateMount/AnimateMount';
+import AnimatedMountItem from '../AnimatedMountItem/AnimatedMountItem';
 
 import styles from './Filters.module.scss';
 
 const Filters = ({ filters, dispatch }) => {
-  const filterSelected = (
-    (filters.role !== '') ||
-    (filters.level !== '') ||
-    (filters.languages.length !== 0) ||
-    (filters.tools.length !== 0)
-  );
-
   return (
-    <AnimateMount isVisible={filterSelected} variant='fade'>
-      <div className={styles.component}>
-        <Card>
-          <div className={styles.wrapper}>
-            <div className={styles.filtersWrapper}>
-              {filters.role !== '' &&
-                <ActiveFilter
-                  property='role'
-                  value={filters.role}
-                  dispatch={dispatch}
-                />}
-              {filters.level !== '' &&
-                <ActiveFilter
-                  property='level'
-                  value={filters.level}
-                  dispatch={dispatch}
-                />}
-              {filters.languages.map((language, i) =>
-                <ActiveFilter
-                  key={i}
-                  property='languages'
-                  value={language}
-                  dispatch={dispatch}
-                />)}
-              {filters.tools.map((tool, i) =>
-                <ActiveFilter
-                  key={i}
-                  property='tools'
-                  value={tool}
-                  dispatch={dispatch}
-                />)}
-            </div>
-            <div className={styles.clearFiltersWrapper}>
-              <ClearButton dispatch={dispatch} />
-            </div>
+    <div className={styles.component}>
+      <Card>
+        <div className={styles.wrapper}>
+          <div className={styles.filtersWrapper}>
+            <AnimateMount isVisible={filters.role !== ''} variant='pop'>
+              <ActiveFilter
+                property='role'
+                value={filters.role}
+                dispatch={dispatch}
+              />
+            </AnimateMount>
+            <AnimateMount isVisible={filters.level !== ''} variant='pop'>
+              <ActiveFilter
+                property='level'
+                value={filters.level}
+                dispatch={dispatch}
+              />
+            </AnimateMount>
+            <AnimatePresence>
+              {filters.languages.map((language, i) => (
+                <AnimatedMountItem key={i} index={i}>
+                  <ActiveFilter
+                    property='languages'
+                    value={language}
+                    dispatch={dispatch}
+                  />
+                </AnimatedMountItem>
+              ))}
+            </AnimatePresence>
+            <AnimatePresence>
+              {filters.tools.map((tool, i) => (
+                <AnimatedMountItem key={i} index={i}>
+                  <ActiveFilter
+                    property='tools'
+                    value={tool}
+                    dispatch={dispatch}
+                  />
+                </AnimatedMountItem>
+              ))}
+            </AnimatePresence>
           </div>
-        </Card>
-      </div>
-    </AnimateMount>
+          <div className={styles.clearFiltersWrapper}>
+            <ClearButton dispatch={dispatch} />
+          </div>
+        </div>
+      </Card>
+    </div>
   );
 };
 

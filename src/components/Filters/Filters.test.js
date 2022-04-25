@@ -20,20 +20,20 @@ describe('Filters component', () => {
 
     const roleFilter = screen.getByTestId('active-role-filter');
     const roleFilterName = within(roleFilter).getByText(mockFiltersState.role);
-    expect(roleFilter).toBeVisible();
-    expect(roleFilterName).toBeVisible();
+    expect(roleFilter).toBeInTheDocument();
+    expect(roleFilterName).toBeInTheDocument();
 
     const levelFilter = screen.getByTestId('active-level-filter');
     const levelFilterName = within(levelFilter).getByText(mockFiltersState.level);
-    expect(levelFilter).toBeVisible();
-    expect(levelFilterName).toBeVisible();
+    expect(levelFilter).toBeInTheDocument();
+    expect(levelFilterName).toBeInTheDocument();
 
     const languageFilters = screen.getAllByTestId('active-languages-filter');
     expect(languageFilters).toHaveLength(mockFiltersState.languages.length);
 
     languageFilters.forEach((languageFilter, i) => {
       const languageFilterName = within(languageFilter).getByText(mockFiltersState.languages[i]);
-      expect(languageFilterName).toBeVisible();
+      expect(languageFilterName).toBeInTheDocument();
     });
 
     const toolsFilters = screen.getAllByTestId('active-tools-filter');
@@ -41,7 +41,7 @@ describe('Filters component', () => {
 
     toolsFilters.forEach((toolsFilter, i) => {
       const languageFilterName = within(toolsFilter).getByText(mockFiltersState.tools[i]);
-      expect(languageFilterName).toBeVisible();
+      expect(languageFilterName).toBeInTheDocument();
     });
   });
 
