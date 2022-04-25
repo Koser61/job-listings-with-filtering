@@ -1,31 +1,41 @@
 import PropTypes from 'prop-types';
-import { useTransition, animated } from 'react-spring';
+import { motion, AnimatePresence } from 'framer-motion';
 
-const AnimateMount = ({ children, show }) => {
-  const fadeInOut = useTransition(show, {
-    from: { position: 'absolute', opacity: 0 },
-    enter: { opacity: 1 },
-    leave: { opacity: 0 },
-  });
+const AnimateMount = ({ children, isVisible, variant }) => {
+  const getStyling = () => {
+    switch(variant) {
+      case 'fade':
+        return {
+          init: { opacity: 0 },
+          animate: { opacity: 1 },
+          exit: { opacity: 0 }
+        };
+      default:
+        return;
+    }
+  };
+
+  const styling = getStyling();
 
   return (
-    <>
-      {fadeInOut((style, item) =>
-        item &&
-          <animated.div
-            style={style}
-            className='AnimateMount'
-          >
-            {children}
-          </animated.div>
+    <AnimatePresence>
+      {isVisible && (
+        <motion.div
+          initial={styling.init}
+          animate={styling.animate}
+          exit={styling.exit}
+        >
+          {children}
+        </motion.div>
       )}
-    </>
+    </AnimatePresence>
   );
 };
 
 AnimateMount.propTypes = {
   children: PropTypes.node.isRequired,
-  trigger: PropTypes.bool,
+  isVisible: PropTypes.bool,
+  variant: PropTypes.oneOf(['fade']).isRequired,
 };
 
 export default AnimateMount;
