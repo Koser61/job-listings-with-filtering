@@ -27,12 +27,14 @@ const App = () => {
   return (
     <>
       <Header />
-      <Container>
-        <AnimateMount isVisible={filterSelected} variant='fade'>
-          <Filters filters={filters} dispatch={dispatch} />
-        </AnimateMount>
-        <JobList filters={filters} dispatch={dispatch} />
-      </Container>
+      <main>
+        <Container>
+          <AnimateMount isVisible={filterSelected} variant='fade'>
+            <Filters filters={filters} dispatch={dispatch} />
+          </AnimateMount>
+          <JobList filters={filters} dispatch={dispatch} />
+        </Container>
+      </main>
       <Footer />
     </>
   );

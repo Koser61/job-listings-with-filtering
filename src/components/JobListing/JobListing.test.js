@@ -37,11 +37,11 @@ describe('JobListing component', () => {
   it('renders proper job offer details from props', () => {
     render(<JobListing {...mockJobData} dispatch={mockDispatch} />);
     
-    const companyName = screen.getByLabelText('company name');
-    const jobPosition = screen.getByLabelText('position');
-    const offerPostedAt = screen.getByLabelText('posted');
-    const contractType = screen.getByLabelText('contract');
-    const jobLocation = screen.getByLabelText('location');
+    const companyName = screen.getByTestId('company-name');
+    const jobPosition = screen.getByLabelText('link');
+    const offerPostedAt = screen.getByTestId('posted');
+    const contractType = screen.getByTestId('contract');
+    const jobLocation = screen.getByTestId('location');
 
     const chipNew = screen.getByText('NEW!');
     const chipFeatured = screen.getByText('FEATURED');
