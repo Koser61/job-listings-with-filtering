@@ -51,76 +51,76 @@ Users should be able to:
 
 ### What I learned
 
-- Using useReducer hook for handling state changes
+## Using useReducer hook for handling state changes
 
->```js
->export const initialFiltersState = {
->  role: '',
->  level: '',
->  languages: [],
->  tools: []
->};
->
->export const filtersReducer = (state, action) => {
->  switch(action.type) {
->    ...
->    case 'ADD_LANGUAGE_FILTER':
->      if(state.languages.includes(action.value)) {
->        return state;
->      } else {
->        return {
->          ...state,
->          languages: [ ...state.languages, action.value ],
->        };
->      }
->    case 'REMOVE_LANGUAGE_FILTER':
->      const targetLanguageFilterIndex = state.languages.indexOf(action.value);
->
->      return {
->        ...state,
->        languages: state.languages.filter((filter, index) =>
->          index !== targetLanguageFilterIndex),
->      };
->    ...
->    default:
->      return state;
->  }
->};
->...
->
->const [ filters, dispatch ] = useReducer(filtersReducer, initialFiltersState);
->
->...
->```
+```js
+export const initialFiltersState = {
+  role: '',
+  level: '',
+  languages: [],
+  tools: []
+};
 
-- Using React Testing Library for writing unit tests
+export const filtersReducer = (state, action) => {
+  switch(action.type) {
+    ...
+    case 'ADD_LANGUAGE_FILTER':
+      if(state.languages.includes(action.value)) {
+        return state;
+      } else {
+        return {
+          ...state,
+          languages: [ ...state.languages, action.value ],
+        };
+      }
+    case 'REMOVE_LANGUAGE_FILTER':
+      const targetLanguageFilterIndex = state.languages.indexOf(action.value);
 
->```js
->describe('ClearButton component', () => {
->  it('renders button with "Clear" text', () => {
->    const fakeDispatch = jest.fn();
->
->    render(<ClearButton dispatch={fakeDispatch} />);
->
->    const button = screen.getByLabelText('clear filters');
->
->    expect(button).toBeVisible();
->    expect(button).toHaveTextContent('Clear');
->  });
->
->  it('dispatches proper action on click', () => {
->    const fakeDispatch = jest.fn();
->    const expectedActionObject = { type: 'CLEAR_FILTERS' };
->
->    render(<ClearButton dispatch={fakeDispatch} />);
->
->    const button = screen.getByLabelText('clear filters');
->    fireEvent.click(button);
->
->    expect(fakeDispatch).toBeCalledWith(expectedActionObject);
->  });
->});
->```
+      return {
+        ...state,
+        languages: state.languages.filter((filter, index) =>
+          index !== targetLanguageFilterIndex),
+      };
+    ...
+    default:
+      return state;
+  }
+};
+...
+
+const [ filters, dispatch ] = useReducer(filtersReducer, initialFiltersState);
+
+...
+```
+
+## Using React Testing Library for writing unit tests
+
+```js
+describe('ClearButton component', () => {
+  it('renders button with "Clear" text', () => {
+    const fakeDispatch = jest.fn();
+
+    render(<ClearButton dispatch={fakeDispatch} />);
+
+    const button = screen.getByLabelText('clear filters');
+
+    expect(button).toBeVisible();
+    expect(button).toHaveTextContent('Clear');
+  });
+
+  it('dispatches proper action on click', () => {
+    const fakeDispatch = jest.fn();
+    const expectedActionObject = { type: 'CLEAR_FILTERS' };
+
+    render(<ClearButton dispatch={fakeDispatch} />);
+
+    const button = screen.getByLabelText('clear filters');
+    fireEvent.click(button);
+
+    expect(fakeDispatch).toBeCalledWith(expectedActionObject);
+  });
+});
+```
 
 ## Author
 
