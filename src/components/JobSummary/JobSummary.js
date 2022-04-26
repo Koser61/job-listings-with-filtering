@@ -15,22 +15,22 @@ const JobSummary = ({
 }) => (
   <div className={styles.component}>
     <div className={styles.heading}>
-      <p aria-label='company name'>{company}</p>
+      <p data-testid='company-name'>{company}</p>
       {isNew && <Chip variant='new' />}
       {isFeatured && <Chip variant='featured' />}
     </div>
     <button
       className={styles.offerLink}
-      aria-label='position'
+      aria-label='link'
     >
       {position}
     </button>
     <div className={styles.params}>
-      <span aria-label='posted'>{postedAt}</span>
+      <span data-testid='posted'>{postedAt}</span>
       <span className={styles.bullet}>•</span>
-      <span aria-label='contract'>{contract}</span>
+      <span data-testid='contract'>{contract}</span>
       <span className={styles.bullet}>•</span>
-      <span aria-label='location'>{location}</span>
+      <span data-testid='location'>{location}</span>
     </div>
   </div>
 );
