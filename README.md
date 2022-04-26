@@ -51,7 +51,7 @@ Users should be able to:
 
 ### What I learned
 
-## Using useReducer hook for handling state changes
+#### - Using useReducer hook for handling state changes
 
 ```js
 export const initialFiltersState = {
@@ -93,7 +93,7 @@ const [ filters, dispatch ] = useReducer(filtersReducer, initialFiltersState);
 ...
 ```
 
-## Using React Testing Library for writing unit tests
+#### - Using React Testing Library for writing unit tests
 
 ```js
 describe('ClearButton component', () => {
