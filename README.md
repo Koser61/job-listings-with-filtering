@@ -1,70 +1,131 @@
-# Getting Started with Create React App
+# Frontend Mentor - Job listings with filtering solution
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a solution to the [Job listings with filtering challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/job-listings-with-filtering-ivstIPCt). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+- [Author](#author)
 
-### `yarn start`
+**Note: Delete this note and update the table of contents based on what sections you keep.**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Overview
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### The challenge
 
-### `yarn test`
+Users should be able to:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- View the optimal layout for the site depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Filter job listings based on the categories
 
-### `yarn build`
+### Screenshot
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Screenshot](./screenshot.jpg)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Links
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Live Site URL [here](https://helpful-starship-6b6a1e.netlify.app/).
 
-### `yarn eject`
+## My process
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Built with
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Semantic HTML5 markup
+- CSS3 (including Flexbox & CSS Grid features)
+- JavaScript (ES6+)
+- Mobile-first workflow
+- [Create React App](https://reactjs.org/) - local environment toolchain
+- [React](https://reactjs.org/) - JS library
+- [SASS](https://sass-lang.com/) - CSS pre-processor (SCSS syntax)
+- [Jest](https://jestjs.io/) - Testing framework
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) - React DOM testing utilities
+- [Framer motion](https://www.framer.com/motion/) - React animation library
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### What I learned
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Using useReducer hook for handling state changes
 
-## Learn More
+```js
+export const initialFiltersState = {
+  role: '',
+  level: '',
+  languages: [],
+  tools: []
+};
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+export const filtersReducer = (state, action) => {
+  switch(action.type) {
+    ...
+    case 'ADD_LANGUAGE_FILTER':
+      if(state.languages.includes(action.value)) {
+        return state;
+      } else {
+        return {
+          ...state,
+          languages: [ ...state.languages, action.value ],
+        };
+      }
+    case 'REMOVE_LANGUAGE_FILTER':
+      const targetLanguageFilterIndex = state.languages.indexOf(action.value);
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+      return {
+        ...state,
+        languages: state.languages.filter((filter, index) =>
+          index !== targetLanguageFilterIndex),
+      };
+    ...
+    default:
+      return state;
+  }
+};
+```
 
-### Code Splitting
+```js
+...
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+const [ filters, dispatch ] = useReducer(filtersReducer, initialFiltersState);
 
-### Analyzing the Bundle Size
+...
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Using React Testing Library for writing unit tests
 
-### Making a Progressive Web App
+```js
+describe('ClearButton component', () => {
+  it('renders button with "Clear" text', () => {
+    const fakeDispatch = jest.fn();
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+    render(<ClearButton dispatch={fakeDispatch} />);
 
-### Advanced Configuration
+    const button = screen.getByLabelText('clear filters');
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+    expect(button).toBeVisible();
+    expect(button).toHaveTextContent('Clear');
+  });
 
-### Deployment
+  it('dispatches proper action on click', () => {
+    const fakeDispatch = jest.fn();
+    const expectedActionObject = { type: 'CLEAR_FILTERS' };
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+    render(<ClearButton dispatch={fakeDispatch} />);
 
-### `yarn build` fails to minify
+    const button = screen.getByLabelText('clear filters');
+    fireEvent.click(button);
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    expect(fakeDispatch).toBeCalledWith(expectedActionObject);
+  });
+});
+```
+
+## Author
+
+- Github - [@Koser61](https://github.com/Koser61)
+- Frontend Mentor - [@Koser61](https://www.frontendmentor.io/profile/Koser61)
