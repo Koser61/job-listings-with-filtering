@@ -31,7 +31,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL [here](https://www.frontendmentor.io/solutions/job-listings-with-filtering-react-Bkk_EdBBc)
 - Live Site URL [here](https://helpful-starship-6b6a1e.netlify.app/).
 
 ## My process
@@ -124,5 +124,5 @@ describe('ClearButton component', () => {
 
 ## Author
 
-- Github - [@Koser61](https://github.com/Koser61)
-- Frontend Mentor - [@Koser61](https://www.frontendmentor.io/profile/Koser61)
+- Github - [@p-kosinski](https://github.com/p-kosinski)
+- Frontend Mentor - [@p-kosinski](https://www.frontendmentor.io/profile/p-kosinski)
