@@ -6,7 +6,7 @@ const Footer = () => (
       Challenge by <a href='https://www.frontendmentor.io?ref=challenge' target='_blank' rel='noreferrer'>
         Frontend Mentor
       </a>. 
-      Coded by <a href='https://github.com/Koser61'>Koser61</a>.
+      Coded by <a href='https://github.com/p-kosinski'>p-kosinski</a>.
     </div>
   </footer>
 );
